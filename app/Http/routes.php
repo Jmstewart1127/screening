@@ -53,4 +53,9 @@ Route::group(['middleware' => ['web']], function () {
 
         return redirect('/');
     });
+
+    /**
+     * Positions Controller
+     */
+    Route::resource('positions', 'PositionController');
 });
