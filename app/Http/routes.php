@@ -57,5 +57,6 @@ Route::group(['middleware' => ['web']], function () {
     /**
      * Positions Controller
      */
-    Route::resource('positions', 'PositionController');
+    Route::resource('positions', 'PositionsController');
+
 });

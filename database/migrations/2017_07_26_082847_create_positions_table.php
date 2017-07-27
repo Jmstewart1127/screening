@@ -15,8 +15,12 @@ class CreatePositionsTable extends Migration
         Schema::create('positions', function(Blueprint $table){
            $table->increments('id');
            $table->string('businessName');
-           $table->string('position');
-           $table->boolean('tests');
+           $table->string('positionName');
+           $table->boolean('screening');
+           $table->date('updated_at');
+           $table->date('created_at');
+
+
         });
     }
 
