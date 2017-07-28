@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Positions;
+use Illuminate\Support\Facades\Input;
 
 class PositionsController extends Controller
 {
@@ -21,17 +22,37 @@ class PositionsController extends Controller
         return view('positions.create');
     }
 
+    /*
+     * Stores new entry and decides
+     * whether screening is required
+     *
+     * */
     public function store()
     {
+        $screening = Input::get('screening');
+
+        if ($screening == 'true') {
+            $result = true;
+        } else {
+            $result = false;
+        }
+
         $position = new Positions;
 
         $position->businessName = request('businessName');
         $position->positionName = request('positionName');
-        $position->screening = request('screening');
+        $position->screening = $result;
 
         $position->save();
 
         return view('positions.index');
+    }
+
+    public function show()
+    {
+        $positions = Positions::all();
+
+        return view('positions.show', compact('positions'));
     }
 
 //    public function show($id)
