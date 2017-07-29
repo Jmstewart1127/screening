@@ -13,6 +13,7 @@
                         <div class="panel-body">
                             <table class="table table-striped task-table">
                                 <thead>
+                                <th></th>
                                 <th>Business</th>
                                 <th>Position</th>
                                 <th>Screening</th>
@@ -21,7 +22,14 @@
                                 @foreach ($positions as $position)
                                     <tr>
 
-
+                                        <td class="table-text">
+                                            <div>
+                                                <form action="{{ url('positions/vote/' .$position->id) }}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    <button type="submit" class="btn btn-default">
+                                                        <i class="fa fa-btn fa-thumbs-o-up"></i>
+                                                    </button>
+                                                </form>{{ $position->rating }}</div></td>
                                         <td class="table-text"><div>{{ $position->businessName }}</div></td>
                                         <td class="table-text"><div>{{ $position->positionName }}</div></td>
                                         @if ($position->screening == 1)

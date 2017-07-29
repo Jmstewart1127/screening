@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -53,6 +54,15 @@ class PositionsController extends Controller
         $positions = Positions::all();
 
         return view('positions.show', compact('positions'));
+    }
+
+    public function thumbUp($id)
+    {
+        DB::table('positions')
+            ->where('id', $id)
+            ->increment('rating', 1);
+
+        return redirect('positions/show');
     }
 
 //    public function show($id)

@@ -59,4 +59,6 @@ Route::group(['middleware' => ['web']], function () {
      */
     Route::resource('positions', 'PositionsController');
 
+    Route::post('positions/vote/{id}', 'PositionsController@thumbUp');
+
 });
