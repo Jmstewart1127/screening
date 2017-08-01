@@ -13,13 +13,14 @@ class CreatePositionsTable extends Migration
     public function up()
     {
         Schema::create('positions', function(Blueprint $table) {
-           $table->increments('id');
-           $table->integer('rating');
-           $table->string('businessName')->unique();
-           $table->string('positionName')->unique();
-           $table->boolean('screening');
-           $table->date('updated_at');
-           $table->date('created_at');
+            $table->increments('id');
+            $table->integer('businessId');
+            $table->string('businessName');
+            $table->integer('rating');
+            $table->string('positionName');
+            $table->boolean('screening');
+            $table->date('updated_at');
+            $table->date('created_at');
         });
     }
 

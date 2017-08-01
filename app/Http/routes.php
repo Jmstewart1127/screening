@@ -54,11 +54,14 @@ Route::group(['middleware' => ['web']], function () {
         return redirect('/');
     });
 
-    /**
-     * Positions Controller
-     */
     Route::resource('positions', 'PositionsController');
 
+    Route::resource('business', 'BusinessController');
+
     Route::post('positions/vote/{id}', 'PositionsController@thumbUp');
+
+    Route::get('positions/create/{id}', 'PositionsController@newPosition');
+
+    Route::post('positions/create/{id}', 'PositionsController@saveNewPosition');
 
 });

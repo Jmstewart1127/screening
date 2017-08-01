@@ -13,17 +13,8 @@
                 @include('common.errors')
 
                 <!-- New Task Form -->
-                    <form action="/positions" method="POST" class="form-horizontal">
+                    <form action="/positions/create/" method="POST" class="form-horizontal">
                     {{ csrf_field() }}
-
-                    <!-- Task Name -->
-                        <div class="form-group">
-                            <label for="task-name" class="col-sm-3 control-label">Employer Name</label>
-
-                            <div class="col-sm-6">
-                                <input type="text" name="businessName" id="task-name" class="form-control" >
-                            </div>
-                        </div>
 
                         <div class="form-group">
                             <label for="task-name" class="col-sm-3 control-label">Position</label>

@@ -65,6 +65,32 @@ class PositionsController extends Controller
         return redirect('positions/show');
     }
 
+    public function newPosition()
+    {
+        return view('positions.create');
+    }
+
+    public function saveNewPosition($id)
+    {
+        $screening = Input::get('screening');
+
+        if ($screening == 'true') {
+            $result = true;
+        } else {
+            $result = false;
+        }
+
+        $position = new Positions;
+
+        $position->businessId = $id;
+        $position->positionName = request('positionName');
+        $position->screening = $result;
+
+        $position->save();
+
+        return view('positions.index');
+    }
+
 //    public function show($id)
 //    {
 //        $positions = Positions::find($id);
