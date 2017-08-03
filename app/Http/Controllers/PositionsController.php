@@ -88,7 +88,7 @@ class PositionsController extends Controller
 
         $position->save();
 
-        return view('positions.index');
+        return redirect('business/showbybusinessid');
     }
-    
+
 }

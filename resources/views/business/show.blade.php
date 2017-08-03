@@ -19,7 +19,7 @@
                                 <tbody>
                                 @foreach ($business as $businesses)
                                     <tr>
-                                        <td class="table-text"><div>{{ $businesses->businessName }}</div></td>
+                                        <td class="table-text"><div><a class="button" href="{{ url('business/show/'.$businesses->id) }}">{{ $businesses->businessName }}</a></div></td>
                                         <td class="table-text"><div><a class="button" href="{{ url('positions/create/'.$businesses->id) }}">New</a></div></td>
                                     </tr>
                                 @endforeach

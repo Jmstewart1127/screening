@@ -58,6 +58,8 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::resource('business', 'BusinessController');
 
+    Route::get('business/show/{id}', 'BusinessController@showPositions');
+
     Route::post('positions/vote/{id}', 'PositionsController@thumbUp');
 
     Route::get('positions/create/{id}', 'PositionsController@newPosition');

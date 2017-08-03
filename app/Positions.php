@@ -14,4 +14,9 @@ class Positions extends Model
     protected $fillable = [
         'businessName', 'positionName', 'screening',
     ];
+
+    public function business()
+    {
+        return $this->hasOne('App\Business');
+    }
 }

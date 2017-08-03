@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Positions;
 use App\Business;
 
 class BusinessController extends Controller
@@ -44,5 +45,16 @@ class BusinessController extends Controller
         $business = Business::all();
 
         return view('business.show', compact('business'));
+    }
+
+    public function showPositions($id)
+    {
+        $positions = Positions::where('businessId', '=', $id)->get();
+
+        $business = Business::where('id', '=', $id)->get();
+
+        return view('business.showbybusinessid')
+            ->with('positions', $positions)
+            ->with('business', $business);
     }
 }
