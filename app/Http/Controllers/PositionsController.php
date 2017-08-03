@@ -90,11 +90,5 @@ class PositionsController extends Controller
 
         return view('positions.index');
     }
-
-//    public function show($id)
-//    {
-//        $positions = Positions::find($id);
-//        return view('positions.show', array('positions' => $positions));
-//    }
-
+    
 }
