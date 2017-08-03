@@ -62,7 +62,9 @@ class PositionsController extends Controller
             ->where('id', $id)
             ->increment('rating', 1);
 
-        return redirect('positions/show');
+        $positions = Positions::where('id', '=', $id)->value('businessId');
+
+        return redirect('business/show/'.$positions);
     }
 
     public function newPosition()
@@ -88,7 +90,7 @@ class PositionsController extends Controller
 
         $position->save();
 
-        return redirect('business/showbybusinessid');
+        return redirect('business/show/'.$id);
     }
 
 }

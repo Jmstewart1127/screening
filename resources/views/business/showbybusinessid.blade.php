@@ -14,12 +14,19 @@
                         <div class="panel-body">
                             <table class="table table-striped task-table">
                                 <thead>
+                                <th>Rating</th>
                                 <th>Position</th>
                                 <th>Screening?</th>
                                 </thead>
                                 <tbody>
                                 @foreach ($positions as $position)
                                         <tr>
+                                            <td><form action="{{ url('positions/vote/' .$position->id) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-default">
+                                                    <i class="fa fa-btn fa-thumbs-o-up"></i>
+                                                </button>
+                                            </form>{{ $position->rating }}</div></td>
                                             <td class="table-text"><div>{{ $position->positionName }}</div></td>
                                             @if ($position->screening == 0)
                                                 <td class="table-text"><div>No</div></td>
@@ -37,7 +44,7 @@
                 {{ csrf_field() }}
 
                 <div class="form-group">
-                    <label for="task-name" class="col-sm-3 control-label">Position</label>
+                    <label for="task-name" class="col-sm-6 control-label">Position Name</label>
 
                     <div class="col-sm-6">
                         <input type="text" name="positionName" id="task-name" class="form-control" >
@@ -45,28 +52,20 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="task-name" class="col-sm-3 control-label">Screening Required?</label>
+                    <label for="task-name" class="col-sm-6 control-label">Screening Required?</label>
                 </div>
 
-                <div class="form-group">
-                    <label for="task-name" class="col-sm-3 control-label">Yes</label>
-
-                    <div class="col-sm-6">
-                        <input type="radio" name="screening" id="task-name" class="form-control" value="true">
-                    </div>
+                <div class="radio form-group">
+                    <label for="task-name" class="col-sm-8 control-label"><input type="radio" name="screening" id="task-name" class="form-control" value="true">Yes</label>
                 </div>
 
-                <div class="form-group">
-                    <label for="task-name" class="col-sm-3 control-label">No</label>
-
-                    <div class="col-sm-6">
-                        <input type="radio" name="screening" id="task-name" class="form-control" value="false" checked>
-                    </div>
+                <div class="radio form-group">
+                    <label for="task-name" class="col-sm-8 control-label"><input type="radio" name="screening" id="task-name" class="form-control" value="false" checked>No</label>
                 </div>
 
-                <!-- Add Task Button -->
+
                 <div class="form-group">
-                    <div class="col-sm-offset-3 col-sm-6">
+                    <div class="col-sm-offset-6 col-sm-6">
                         <button type="submit" class="btn btn-default">
                             <i class="fa fa-btn fa-plus"></i>Add
                         </button>
@@ -79,3 +78,6 @@
         </div>
     </div>
 @endsection
+
+
+{{--<label for="task-name" class="col-sm-6 control-label">--}}

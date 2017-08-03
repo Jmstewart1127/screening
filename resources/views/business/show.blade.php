@@ -7,20 +7,18 @@
                 @if (count($business) > 0)
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Current Tasks
+                            Employers
                         </div>
 
                         <div class="panel-body">
                             <table class="table table-striped task-table">
                                 <thead>
-                                <th>Business</th>
-                                <th>New Position</th>
+                                <th>Employer Name</th>
                                 </thead>
                                 <tbody>
                                 @foreach ($business as $businesses)
                                     <tr>
                                         <td class="table-text"><div><a class="button" href="{{ url('business/show/'.$businesses->id) }}">{{ $businesses->businessName }}</a></div></td>
-                                        <td class="table-text"><div><a class="button" href="{{ url('positions/create/'.$businesses->id) }}">New</a></div></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

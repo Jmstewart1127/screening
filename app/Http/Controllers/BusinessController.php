@@ -57,4 +57,9 @@ class BusinessController extends Controller
             ->with('positions', $positions)
             ->with('business', $business);
     }
+
+    public function search($search)
+    {
+
+    }
 }
