@@ -73,3 +73,13 @@ use Illuminate\Http\Request;
 
 
 
+
+Route::group(['middleware' => 'web'], function () {
+
+    Route::auth();
+
+    Route::get('/', 'HomeController@index');
+
+    Route::get('/home', 'HomeController@index');
+
+});
