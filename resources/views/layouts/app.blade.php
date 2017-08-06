@@ -13,11 +13,18 @@
 
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/app.css" rel='stylesheet' type='text/scss'>
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
         body {
             font-family: 'Lato';
+        }
+
+        #radio {
+            height: 5px;
+            position: relative;
+            top: -1.4em;
         }
 
         .fa-btn {
@@ -48,6 +55,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/business/show') }}">Employers</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

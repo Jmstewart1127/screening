@@ -27,6 +27,7 @@
                     </div>
                 @endif
             </div>
+            <a href="/business/create">Add Employer</a>
         </div>
     </div>
 @endsection
