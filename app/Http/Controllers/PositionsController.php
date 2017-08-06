@@ -9,7 +9,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Positions;
+use App\Ratings;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 
 class PositionsController extends Controller
 {
@@ -63,6 +65,12 @@ class PositionsController extends Controller
             ->increment('rating', 1);
 
         $positions = Positions::where('id', '=', $id)->value('businessId');
+
+        $userId = Auth::user()->id;
+
+        $rating = new Ratings();
+
+        $rating->newRating($userId, $id);
 
         return redirect('business/show/'.$positions);
     }

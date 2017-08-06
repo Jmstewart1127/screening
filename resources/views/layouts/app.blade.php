@@ -25,6 +25,7 @@
             height: 5px;
             position: relative;
             top: -1.4em;
+            width: 25%;
         }
 
         .fa-btn {
