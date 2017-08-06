@@ -17,6 +17,7 @@ class CreateRatingsTable extends Migration
             $table->timestamps();
             $table->integer('userId');
             $table->integer('positionId');
+            $table->integer('rating');
             $table->boolean('hasRated');
         });
     }

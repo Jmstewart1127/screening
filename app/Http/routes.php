@@ -88,6 +88,8 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('user', 'AuthController');
 
+    Route::post('rating/vote/{id}', 'RatingsController@thumbUp');
+
     Route::get('business/show/{id}', 'BusinessController@showPositions');
 
     Route::post('positions/vote/{id}', 'PositionsController@thumbUp');

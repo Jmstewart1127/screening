@@ -14,7 +14,7 @@ class Ratings extends Model
      * @var array
      */
     protected $fillable = [
-        'userId', 'positionId', 'hasRated'
+        'userId', 'positionId', 'hasRated', 'rating'
     ];
 
     public function positions()
@@ -27,24 +27,4 @@ class Ratings extends Model
         return $this->hasMany('App\User');
     }
 
-    public function newRating($userId, $positionId)
-    {
-        $rated = Ratings::where([
-            ['userId', '=', $userId],
-            ['positionId', '=', $positionId]
-        ])->get();
-
-        if ($rated) {
-            echo "nope";
-        }
-        else {
-            $rating = New Ratings;
-
-            $rating->positionId = $positionId;
-            $rating->userId = $userId;
-            $rating->hasRated = true;
-
-            $rating->save();
-        }
-    }
 }

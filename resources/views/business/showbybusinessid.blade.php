@@ -38,7 +38,7 @@
                             </tr>
                             @else
                                 <tr>
-                                    <td><form action="{{ url('positions/vote/' .$position->id) }}" method="POST">
+                                    <td><form action="{{ url('rating/vote/' .$position->id) }}" method="POST">
                                             {{ csrf_field() }}
                                             <button type="submit" class="btn btn-default">
                                                 <i class="fa fa-btn fa-thumbs-o-up"></i>

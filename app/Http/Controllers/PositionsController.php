@@ -60,17 +60,11 @@ class PositionsController extends Controller
 
     public function thumbUp($id)
     {
+        $positions = Positions::where('id', '=', $id)->value('businessId');
+
         DB::table('positions')
             ->where('id', $id)
             ->increment('rating', 1);
-
-        $positions = Positions::where('id', '=', $id)->value('businessId');
-
-        $userId = Auth::user()->id;
-
-        $rating = new Ratings();
-
-        $rating->newRating($userId, $id);
 
         return redirect('business/show/'.$positions);
     }
