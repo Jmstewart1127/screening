@@ -40,7 +40,12 @@
                                 <tr>
                                     <td><form action="{{ url('rating/vote/' .$position->id) }}" method="POST">
                                             {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-default">
+                                            @if ($ratings)
+                                                <button id="vote" type="submit" class="btn btn-default" disabled>
+                                            @else
+                                                        <button type="submit" class="btn btn-default">
+                                            @endif
+
                                                 <i class="fa fa-btn fa-thumbs-o-up"></i>
                                             </button>
                                         </form>{{ $position->rating }}</div></td>
