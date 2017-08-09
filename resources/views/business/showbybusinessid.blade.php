@@ -25,7 +25,7 @@
                                         <tr>
                                             <td><form action="{{ url('positions/vote/' .$position->id) }}" method="POST">
                                                     {{ csrf_field() }}
-                                                    <button id="vote" type="submit" class="btn btn-default" title="Login to vote" disabled>
+                                                    <button id="vote" type="submit" class="btn btn-default rating" title="Login to vote" disabled>
                                                         <i class="fa fa-btn fa-thumbs-o-up"></i>
                                                     </button>
                                                 </form>{{ $position->rating }}</div></td>
@@ -40,16 +40,20 @@
                                 <tr>
                                     <td><form action="{{ url('rating/vote/' .$position->id) }}" method="POST">
                                             {{ csrf_field() }}
-                                            @if ($ratings)
-                                                <button id="vote" type="submit" class="btn btn-default" disabled>
-                                            @else
-                                                        <button type="submit" class="btn btn-default">
-                                            @endif
-
-                                                <i class="fa fa-btn fa-thumbs-o-up"></i>
+                                            <button type="submit" class="btn btn-default rating">
+                                                <i class="fa fa-btn fa-thumbs-o-up">
+                                                    <div class="rating-number">
+                                                        {{ $position->rating }}
+                                                    </div>
+                                                </i>
                                             </button>
-                                        </form>{{ $position->rating }}</div></td>
-                    <td class="table-text"><div>{{ $position->positionName }}</div></td>
+                                        </form>
+                                    </td>
+                    <td class="table-text">
+                        <div>
+                            {{ $position->positionName }}
+                        </div>
+                    </td>
                     @if ($position->screening == 0)
                         <td class="table-text"><div>No</div></td>
                     @else

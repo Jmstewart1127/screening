@@ -1,0 +1,26 @@
+/*It's cool to add comments here*/
+
+body {
+    font-family: 'Lato';
+}
+
+#radio {
+    height: 5px;
+    position: relative;
+    top: -1.4em;
+    width: 25%;
+}
+
+.fa-btn {
+    margin-right: 6px;
+}
+
+.rating {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    width: 0;
+}
+
+.rating-number {
+    display: inline;
+}

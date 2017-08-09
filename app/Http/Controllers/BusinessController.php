@@ -55,13 +55,13 @@ class BusinessController extends Controller
 
         $business = Business::where('id', '=', $id)->get();
 
-        $ratings = Ratings::where([['userId', '=', Auth::id()],
-                                    ['hasRated', '=', 1]]);
+//        $ratings = Ratings::where([['userId', '=', Auth::id()],
+//                                    ['hasRated', '=', 1]]);
 
         return view('business.showbybusinessid')
             ->with('positions', $positions)
-            ->with('business', $business)
-            ->with('ratings', $ratings);
+            ->with('business', $business);
+//            ->with('ratings', $ratings);
     }
 
     public function search($search)

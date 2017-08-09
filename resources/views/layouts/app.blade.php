@@ -14,6 +14,8 @@
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../assets/css/app.css" rel='stylesheet' type='text/scss'>
+    <link href="{{ URL::asset('css/style.css') }}" rel='stylesheet' type='text/css'>
+
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
