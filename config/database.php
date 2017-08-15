@@ -3,8 +3,8 @@
 $url = parse_url(getenv("mysql://b6ef2571816a32:b0c2c443@us-cdbr-iron-east-05.cleardb.net/heroku_336ee62280d25bf?reconnect=true"));
 
 $host = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
+$username = $url["b6ef2571816a32"];
+$password = $url["b0c2c443"];
 $database = substr($url["path"], 1);
 
 
@@ -65,9 +65,9 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => $host,
-            'database'  => env('DB_DATABASE', 'forge'),
-            'username'  => env('DB_USERNAME', 'forge'),
-            'password'  => env('DB_PASSWORD', ''),
+            'database'  => $database,
+            'username'  => $username,
+            'password'  => $password,
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
