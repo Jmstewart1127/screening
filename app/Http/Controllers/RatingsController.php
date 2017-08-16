@@ -13,6 +13,11 @@ use App\Http\Controllers\Controller;
 
 class RatingsController extends Controller
 {
+    /**
+     * Checks if user has already rated a position
+     * Increments the rating by one if not rated
+     * Else, increment by 0 (rating does nothing)
+     **/
     public function thumbUp($id)
     {
         $userId = Auth::user()->id;

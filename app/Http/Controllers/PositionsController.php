@@ -25,11 +25,9 @@ class PositionsController extends Controller
         return view('positions.create');
     }
 
-    /*
-     * Stores new entry and decides
-     * whether screening is required
-     *
-     * */
+    /**
+     * Stores new entry and decide whether screening is required
+     **/
     public function store()
     {
         $screening = Input::get('screening');
@@ -58,16 +56,19 @@ class PositionsController extends Controller
         return view('positions.show', compact('positions'));
     }
 
-    public function thumbUp($id)
-    {
-        $positions = Positions::where('id', '=', $id)->value('businessId');
-
-        DB::table('positions')
-            ->where('id', $id)
-            ->increment('rating', 1);
-
-        return redirect('business/show/'.$positions);
-    }
+    /**
+     * Increments credibility rating by one based on position id
+     **/
+//    public function thumbUp($id)
+//    {
+//        $positions = Positions::where('id', '=', $id)->value('businessId');
+//
+//        DB::table('positions')
+//            ->where('id', $id)
+//            ->increment('rating', 1);
+//
+//        return redirect('business/show/'.$positions);
+//    }
 
     public function newPosition()
     {

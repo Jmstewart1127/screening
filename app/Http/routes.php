@@ -65,7 +65,7 @@ use Illuminate\Http\Request;
 
     Route::get('business/show/{id}', 'BusinessController@showPositions');
 
-    Route::post('positions/vote/{id}', 'PositionsController@thumbUp');
+//    Route::post('positions/vote/{id}', 'PositionsController@thumbUp');
 
     Route::get('positions/create/{id}', 'PositionsController@newPosition');
 

@@ -26,11 +26,9 @@ class BusinessController extends Controller
         return view('business.create');
     }
 
-    /*
- * Stores new entry and decides
- * whether screening is required
- *
- * */
+    /**
+     * Stores new entry and decides whether screening is required
+     **/
     public function store()
     {
         $business = new Business;
@@ -39,9 +37,12 @@ class BusinessController extends Controller
 
         $business->save();
 
-        return view('business.create');
+        return $this->show();
     }
 
+    /**
+     * Shows all businesses
+     **/
     public function show()
     {
         $business = Business::all();
@@ -49,19 +50,18 @@ class BusinessController extends Controller
         return view('business.show', compact('business'));
     }
 
+    /**
+     * Shows positions of a selected business
+     **/
     public function showPositions($id)
     {
         $positions = Positions::where('businessId', '=', $id)->get();
 
         $business = Business::where('id', '=', $id)->get();
 
-//        $ratings = Ratings::where([['userId', '=', Auth::id()],
-//                                    ['hasRated', '=', 1]]);
-
         return view('business.showbybusinessid')
             ->with('positions', $positions)
             ->with('business', $business);
-//            ->with('ratings', $ratings);
     }
 
     public function search($search)

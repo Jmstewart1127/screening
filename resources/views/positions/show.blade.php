@@ -68,9 +68,6 @@
                     </div>
                 @endif
             </div>
-
-            <!-- Current Tasks -->
-
         </div>
     </div>
 @endsection
