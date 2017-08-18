@@ -23,13 +23,17 @@
                                 @foreach ($positions as $position)
                                     @if (Auth::guest())
                                         <tr>
-                                            <td><form action="{{ url('positions/vote/' .$position->id) }}" method="POST">
+                                            <td><form action="{{ url('rating/vote/' .$position->id) }}" method="POST">
                                                     {{ csrf_field() }}
                                                     <button id="vote" type="submit" class="btn btn-default rating" title="Login to vote" disabled>
-                                                        <i class="fa fa-btn fa-thumbs-o-up"></i>
+                                                        <i class="fa fa-btn fa-thumbs-o-up">
+                                                            <div class="rating-number">
+                                                                {{ $position->rating }}
+                                                            </div>
+                                                        </i>
                                                     </button>
-                                                </form>{{ $position->rating }}</div></td>
-                        <td class="table-text"><div>{{ $position->positionName }}</div></td>
+                                                </form>
+                                        <td class="table-text"><div>{{ $position->positionName }}</div></td>
                         @if ($position->screening == 0)
                             <td class="table-text"><div>No</div></td>
                         @else
@@ -105,6 +109,3 @@
     </div>
     </div>
 @endsection
-
-
-{{--<label for="task-name" class="col-sm-6 control-label">--}}
