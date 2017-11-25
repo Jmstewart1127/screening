@@ -37,7 +37,9 @@ class RatingsController extends Controller
             $rating = New Ratings;
 
             $rating->positionId = $id;
+
             $rating->userId = $userId;
+            
             $rating->hasRated = true;
 
             $rating->save();

@@ -56,25 +56,6 @@ class PositionsController extends Controller
         return view('positions.show', compact('positions'));
     }
 
-    /**
-     * Increments credibility rating by one based on position id
-     **/
-//    public function thumbUp($id)
-//    {
-//        $positions = Positions::where('id', '=', $id)->value('businessId');
-//
-//        DB::table('positions')
-//            ->where('id', $id)
-//            ->increment('rating', 1);
-//
-//        return redirect('business/show/'.$positions);
-//    }
-
-    public function newPosition()
-    {
-        return view('positions.create');
-    }
-
     public function saveNewPosition($id)
     {
         $screening = Input::get('screening');
@@ -88,7 +69,9 @@ class PositionsController extends Controller
         $position = new Positions;
 
         $position->businessId = $id;
+
         $position->positionName = request('positionName');
+
         $position->screening = $result;
 
         $position->save();
