@@ -65,14 +65,10 @@ class BusinessController extends Controller
     }
 
     public function destroy($id) 
-    {
-        $positions = Positions::where('businessId', '=', $id)->get();
-        
+    {   
         $business = Business::where('id', '=', $id)->delete();
         
-        return view('business.showbybusinessid')
-            ->with('positions', $positions)
-            ->with('business', $business);
+        return view('business.show');
     }
 
 
