@@ -41,7 +41,9 @@ class PositionsController extends Controller
         $position = new Positions;
 
         $position->businessName = request('businessName');
+
         $position->positionName = request('positionName');
+        
         $position->screening = $result;
 
         $position->save();
