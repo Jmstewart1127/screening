@@ -45,6 +45,8 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('business/show/{id}', 'BusinessController@showPositions');
 
+    Route::post('business/delete/{id}', 'BusinessController@destroy');
+
     Route::post('positions/vote/{id}', 'PositionsController@thumbUp');
 
     Route::get('positions/create/{id}', 'PositionsController@newPosition');
