@@ -26,6 +26,8 @@ use Illuminate\Http\Request;
 
     Route::post('positions/create/{id}', 'PositionsController@saveNewPosition');
 
+    Route::get('business/delete/{id}', 'BusinessController@destroy');
+
 
 Route::group(['middleware' => 'web'], function () {
 
@@ -45,7 +47,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('business/show/{id}', 'BusinessController@showPositions');
 
-    Route::post('business/delete/{id}', 'BusinessController@destroy');
+    Route::get('business/delete/{id}', 'BusinessController@destroy');
 
     Route::post('positions/vote/{id}', 'PositionsController@thumbUp');
 
